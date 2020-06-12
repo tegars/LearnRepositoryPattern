@@ -6,22 +6,29 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using LearnRepositoryPattern.Models;
+using BLL.Repositories;
+using DAL.Entities;
 
 namespace LearnRepositoryPattern.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private CategoryRepository categoryRepository;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            categoryRepository = new CategoryRepository();
         }
 
         public IActionResult Index()
         {
-            //var Category = blabla;
-            return View();
+            var categories = categoryRepository.GetAll();
+            CategoryIndexVM result = new CategoryIndexVM();
+            result.Test = "Hai";
+            result.categories = categories.Cast<Category>().ToList();
+            return View(result);
         }
 
         public IActionResult Privacy()

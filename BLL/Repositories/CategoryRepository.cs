@@ -1,7 +1,9 @@
 ﻿using BLL.Interfaces;
+using DAL;
 using DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BLL.Repositories
@@ -15,7 +17,19 @@ namespace BLL.Repositories
 
         public IList<Category> GetAll()
         {
-            throw new NotImplementedException();
+            IList<Category> categories = new List<Category>();
+            try
+            {
+                using (DBContext context = new DBContext())
+                {
+                    categories = context.Categories.OrderBy(x => x.Name).ToList();
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+            return categories;
         }
 
         public Category GetById(int Id)

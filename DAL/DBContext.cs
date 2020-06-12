@@ -8,8 +8,12 @@ using System.Text;
 
 namespace DAL
 {
-    class DBContext : DbContext
+    public class DBContext : DbContext
     {
+        //public DBContext(DbContextOptions<DBContext> options, IConfiguration configuration) : base(options)
+        //{
+            
+        //}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql("server=localhost;database=LearnRepositoryPattern;Port=5432;User Id=postgres;Password=fads;", b => b.MigrationsAssembly("DAL"));

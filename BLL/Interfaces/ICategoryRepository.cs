@@ -5,7 +5,7 @@ using DAL.Entities;
 
 namespace BLL.Interfaces
 {
-    interface ICategoryRepository : IBaseRepository<Category>
+    public interface ICategoryRepository : IBaseRepository<Category>
     {
         Category GetById(int Id);
     }
