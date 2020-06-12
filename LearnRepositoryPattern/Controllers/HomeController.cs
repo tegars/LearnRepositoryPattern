@@ -8,13 +8,14 @@ using Microsoft.Extensions.Logging;
 using LearnRepositoryPattern.Models;
 using BLL.Repositories;
 using DAL.Entities;
+using BLL.Interfaces;
 
 namespace LearnRepositoryPattern.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private CategoryRepository categoryRepository;
+        private ICategoryRepository categoryRepository;
 
         public HomeController(ILogger<HomeController> logger)
         {
