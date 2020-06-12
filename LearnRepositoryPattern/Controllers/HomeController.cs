@@ -20,6 +20,7 @@ namespace LearnRepositoryPattern.Controllers
 
         public IActionResult Index()
         {
+            //var Category = blabla;
             return View();
         }
 

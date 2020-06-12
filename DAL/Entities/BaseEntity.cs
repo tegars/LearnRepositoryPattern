@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DAL.Entities
 {
-    class BaseEntity
+    public class BaseEntity
     {
         [Key]
         public Guid Id { set; get; }

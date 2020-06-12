@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL.Entities
 {
-    class Product : BaseEntity
+    public class Product : BaseEntity
     {
         public int CategoryId { set; get; }
         public string Name { set; get; }
